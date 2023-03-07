@@ -33,6 +33,7 @@ class Main_menu():
         self.runn = True
         # ekraani nimi
         pygame.display.set_caption("main menu")
+        self.points = 0
 
     def run(self):
         click = False
@@ -81,6 +82,8 @@ class Main_menu():
 
             click = False
 
+            print(self.points)
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -92,6 +95,10 @@ class Main_menu():
                     if event.button == 0:
                         click = True
             pygame.display.update()
+
     def clicker(self, state):
-        Clicker(self.screen, state).run()
+        click = Clicker(self.screen, state)
+        click.run()
+        if click.highest_score >= 100000:
+            self.points += 1
 
