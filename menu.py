@@ -1,5 +1,6 @@
 import pygame
 import sys
+from clicker import *
 
 pygame.init()
 
@@ -68,7 +69,7 @@ while True:
     # vaatab kas hiir on nupul
     if button.collidepoint((mx, my)):
         if click:
-            print('a')
+            Clicker(screen)
     if button_2.collidepoint((mx, my)):
         if click:
             print('am')
