@@ -1,64 +1,76 @@
-import sys
+import random
 
-answer_A = ["A", "a"]
-answer_B = ["B", "b"]
-answer_C = ["C", "c"]
-answer_D = ["D", "d"]
-answer_E = ["E", "e"]
-yes = ["Y", "y", "yes"]
-no = ["N", "n", "no"]
+# küsi mängijalt nime
+name = input("Tere! Mis on sinu nimi? ")
 
-required = ("\nKasuta ainult A, B, C, D, E\n")
+# tervita mängijat
+print(f"Tere tulemast, {name}! Sinu eesmärk on jõuda kooliaasta lõpuni ja saada hea hinne.")
 
-def intro():
-    print("Tere tulemast avastus mängule!")
-    print("Alustame mänguga!")
-    print("Esimeseks vali mis päeval soovid kooli minna.")
-    print("Tähtis on, et igal päeval on erinev sündmus toimunud ja see võib mõjutada sinu päeva.")
-    
-    print("Valige mis päeval lähete kooli: ")
+# defineeri erinevad ülesanded ja vastused
+tasks = {
+    "matemaatika": [
+        {
+            "question": "Kui 5 õpilast suudavad ehitada maja 5 päevaga, siis kui kaua kulub 8 õpilasel sama maja ehitamiseks?",
+            "answer": "3.125 päeva"
+        },
+        {
+            "question": "Mis on ruutjuure arvust 64?",
+            "answer": "8"
+        }
+    ],
+    "ajalugu": [
+        {
+            "question": "Millal toimus Esimene Maailmasõda?",
+            "answer": "1914-1918"
+        },
+        {
+            "question": "Millal toimus Eesti Vabariigi taasiseseisvumine?",
+            "answer": "1991"
+        }
+    ],
+    "bioloogia": [
+        {
+            "question": "Mis on taimerakkudes rohelist värvi andev pigmend?",
+            "answer": "klorofüll"
+            },
+        {
+            "question": "Mis on inimese keha kõige suurem organ?",
+            "answer": "nahk"
+            }
+    ],
+        }
 
-intro()
+# Defineerin funktsioon, mis küsib ülesannet ja kontrollib vastust
+def ask_task(subject, tasks):
+    task = random.choice(tasks[subject])
+    print(task["question"])
+    answer = input("Sisesta oma vastus: ")
+    if answer.lower() == task["answer"].lower():
+        print("Õige vastus! Sa said punkti.")
+        return 1
+    else:
+        print("Vale vastus. Kaotasid punkti.")
+        return -1
 
-print(""" 
-A. esmaspäev
-B. teisipäev
-C. kolmapäev
-D. neljapäev
-E. reede """)
+#alustan mängu
+points = 0
+for subject in tasks.keys():
+    print(f"Tere tulemast {subject} väljakutsesse!")
+    response = input("Kas soovid seda väljakutset proovida? (jah/ei) ")
+    if response.lower() == "jah":
+        points += ask_task(subject, tasks)
+    else:
+        print("Väljakutsest loobuti.")
 
-valik = input(">>> ")
-if valik in answer_A:
-    print("\nTäna on spordipäev selleks lähed kooli 10:00 ja tunnid jäävad ära")
-elif valik in answer_B:
-    option_riietus()
-elif valik in answer_C:
-    print("\nTäna on tavaline koolipäev aga sul on matemaatika ja bioloogia kontrolltöö")
-elif valik in answer_D:
-    option_sünnipäev()
-elif valik in answer_E:
-    print("Täna on klassiõhtu")
+#mängu lõpp
+if points >= 3:
+    print("Palju õnne! Sa said hea hinne.")
+elif points > 0:
+    print("Tubli töö! Sa said rahuldava hinne.")
 else:
-    print(required)
-    intro()
+    print("Kahjuks ei saanud sa head hinnet.")
+print(f"Said kokku {points} punkti.")
 
-
-
-def option_riietus():
-    print("\nValin endale riietus õpetajate päevaks: " )
-    print(""" A. teksad ja pusa
-    B. ülikond
-    C. lühikesed püksid ja T-särk""")
-    valik = input(">>> ")
-  if valik in answer_A:
-    print("\nNüüd")
-  elif valik in answer_B:
-    print ("\n")
-  elif choice in answer_C:
-    option_cave()
-  else:
-    print (required)
-    option_riietus()
 
 
 
