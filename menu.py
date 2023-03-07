@@ -1,6 +1,6 @@
 import pygame
 import sys
-from clicker import text_thing
+from clicker import *
 
 pygame.init()
 
@@ -37,8 +37,8 @@ class Main_menu():
     def run(self):
         click = False
         while self.runn:
-            # hiire positsioon
 
+            # hiire positsioon
             mx, my = pygame.mouse.get_pos()
 
 
@@ -52,7 +52,6 @@ class Main_menu():
             sizey = 80
 
             # nupud
-
             button = Menu_button(x, y, sizex, sizey, self.screen, red, black, 'Clicker')
             button1 = Menu_button(x + 400, y, sizex, sizey, self.screen, red, black, 'B')
             button2 = Menu_button(x - 400, y, sizex, sizey, self.screen, red, black, 'A')
@@ -63,7 +62,7 @@ class Main_menu():
             # vaatab kas hiir on nupul
             if button.rect.collidepoint((mx, my)):
                 if click:
-                    print('Clicker')
+                    self.clicker(click)
             if button1.rect.collidepoint((mx, my)):
                 if click:
                     print('B')
@@ -93,3 +92,6 @@ class Main_menu():
                     if event.button == 0:
                         click = True
             pygame.display.update()
+    def clicker(self, state):
+        Clicker(self.screen, state).run()
+

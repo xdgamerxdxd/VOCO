@@ -10,15 +10,15 @@ def text_thing(sentance, surface, font, color, x, y,):
     surface.blit(text, rect)
 
 class Clicker():
-    def __init__(self, screen):
+    def __init__(self, screen, state):
         self.screen = screen
-        self.running = False
+        self.running = state
         self.entities()
-        self.clike = False
         self.score = 0
         self.workers = 0
         self.tick = pygame.time.get_ticks()
         self.ammount = 50
+        pygame.display.set_caption("Clicker gamer")
 
     def entities(self):
         self.all = pygame.sprite.Group()
@@ -27,26 +27,38 @@ class Clicker():
         self.all.add(self.test, self.worker)
 
     def run(self):
-        mx, my = pygame.mouse.get_pos()
-        self.all.draw(self.screen)
-        self.test.run()
-        self.working(self.workers)
+        while self.running:
+            self.screen.fill((0, 0, 0))
+            mx, my = pygame.mouse.get_pos()
+            self.all.draw(self.screen)
+            self.test.run()
+            self.working(self.workers)
 
-        if self.worker.rect.collidepoint((mx, my)):
-            text_thing('Vocos on kokku 75 kursust', self.screen, pygame.font.SysFont('Calibri', 20), (255,255,255), mx + 50, my)
-            if self.clike and self.score >= self.ammount:
-                self.workers += 1
-                self.score -= self.ammount
-                self.ammount += 3
+            if self.worker.rect.collidepoint((mx, my)):
+                text_thing('Vocos on kokku 75 kursust', self.screen, pygame.font.SysFont('Calibri', 20), (255,255,255), mx + 50, my)
+                if clike and self.score >= self.ammount:
+                    self.workers += 1
+                    self.score -= self.ammount
+                    self.ammount += 3
 
-        if self.test.rect.collidepoint((mx, my)):
-            text_thing("Õppetöö toimub nii päeva- kui kaugõppe vormis.", self.screen, pygame.font.SysFont('Calibri', 20), (255,255,255), mx + 50, my)
-            text_thing("See annab võimaluse töö ja õpingute sobitamiseks ning paindlikkuseks.", 
-                       self.screen, pygame.font.SysFont('Calibri', 20), (255,255,255), mx + 50, my+ 20)
-            if self.clike:
-                self.score += 1
-        self.counter = text_thing(str(self.score), self.screen, pygame.font.SysFont('Calibri', 60), (25,255,255), 1280 / 2, 100)
-        self.clike = False
+            if self.test.rect.collidepoint((mx, my)):
+                text_thing("Õppetöö toimub nii päeva- kui kaugõppe vormis.", self.screen, pygame.font.SysFont('Calibri', 20), (255,255,255), mx + 50, my)
+                text_thing("See annab võimaluse töö ja õpingute sobitamiseks ning paindlikkuseks.", 
+                        self.screen, pygame.font.SysFont('Calibri', 20), (255,255,255), mx + 50, my+ 20)
+                if clike:
+                    self.score += 1
+            self.counter = text_thing(str(self.score), self.screen, pygame.font.SysFont('Calibri', 60), (25,255,255), 1280 / 2, 100)
+            clike = False
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1:
+                        clike = True
+                    if event.button == 0:
+                        clike = True
+            pygame.display.update()
+        
 
     def working(self, workers):
         seconds=(pygame.time.get_ticks()-self.tick)/1000
@@ -54,24 +66,3 @@ class Clicker():
             self.score += workers
         if seconds>=1:
          self.tick = pygame.time.get_ticks()
-def game():
-    pygame.init()
-
-    screen = pygame.display.set_mode((1280,768))
-    clicker = Clicker(screen)
-
-    while clicker.running:
-        screen.fill((0,0,0))
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                clicker.running = False
-            if event.type == MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    clicker.clike = True
-        
-        clicker.run()
-
-        pygame.display.update()
-
-    pygame.quit()
-game()
