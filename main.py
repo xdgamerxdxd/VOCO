@@ -1,5 +1,5 @@
 import pygame
-#from clicker import *
+from menu import Main_menu, screen_height, screen_width
 
 class Game():
     def __init__(self, screen):
@@ -7,13 +7,18 @@ class Game():
         self.running = True
     
     def run(self):
-        pass
+        self.main_menu()
+
+    def main_menu(self):
+        main = Main_menu(self.screen)
+        main.run()
+
 
 def main():
 
     pygame.init()
 
-    screen = pygame.display.set_mode((1280,768))
+    screen = pygame.display.set_mode((screen_width, screen_height))
     game = Game(screen)
     clock = pygame.time.Clock()
 

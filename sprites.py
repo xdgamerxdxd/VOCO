@@ -20,7 +20,7 @@ class Worker(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super(Worker, self).__init__()
 
-        self.image = pygame.image.load('images/child labor.png')
+        self.image = pygame.image.load('images/child.png')
         self.rect = self.image.get_rect()
         self.rect.y = y / 2
         self.rect.x = x / 2

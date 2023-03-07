@@ -12,7 +12,7 @@ def text_thing(sentance, surface, font, color, x, y,):
 class Clicker():
     def __init__(self, screen):
         self.screen = screen
-        self.running = True
+        self.running = False
         self.entities()
         self.clike = False
         self.score = 0
