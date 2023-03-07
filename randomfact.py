@@ -1,4 +1,5 @@
 import random
+import time
 
 # Kooli ja erialade faktid
 voco_faktid = {
@@ -50,9 +51,9 @@ def play_game():
 
     # Alusta punktide arvestust
     points = 0
-
     # Käivita mäng, kuni kasutaja soovib mängida
     while True:
+        time.sleep(2)
         print("Valige, mida soovite teha:")
         print("1. Tutvu sisseastumisega")
         print("2. Tutvu ITA erialaga")
@@ -60,7 +61,6 @@ def play_game():
         print("4. Tutvu õppimisega") 
         print("5. Elu-oluga Voco koolis")
         print("6. Välju mängust")
-
         choice = input("Valige number: ")
 
 
@@ -84,7 +84,5 @@ def play_game():
             fact = random.choice(voco_faktid["Elu_olu"])
             print(fact)
             points += 10
-        
-        
-
-play_game()
+        elif choice == 'quit':
+            break

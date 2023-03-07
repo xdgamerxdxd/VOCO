@@ -1,6 +1,7 @@
 import pygame
 import sys
 from clicker import *
+from randomfact import *
 
 pygame.init()
 
@@ -55,7 +56,7 @@ class Main_menu():
             # nupud
             button = Menu_button(x, y, sizex, sizey, self.screen, red, black, 'Clicker')
             button1 = Menu_button(x + 400, y, sizex, sizey, self.screen, red, black, 'B')
-            button2 = Menu_button(x - 400, y, sizex, sizey, self.screen, red, black, 'A')
+            button2 = Menu_button(x - 400, y, sizex, sizey, self.screen, red, black, 'Faktid')
             button3 = Menu_button(x, y + 340, sizex, sizey, self.screen, red, black, 'D')
             button4 = Menu_button(x + 400, y + 340, sizex, sizey, self.screen, red, black, 'E')
             button5 = Menu_button(x - 400, y + 340, sizex, sizey, self.screen, red, black, 'C')
@@ -69,7 +70,7 @@ class Main_menu():
                     print('B')
             if button2.rect.collidepoint((mx, my)):
                 if click:
-                    print('A')
+                    play_game()
             if button3.rect.collidepoint((mx, my)):
                 if click:
                     print('D')
@@ -81,8 +82,6 @@ class Main_menu():
                     print('C')
 
             click = False
-
-            print(self.points)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -101,4 +100,5 @@ class Main_menu():
         click.run()
         if click.highest_score >= 100000:
             self.points += 1
+            print(self.points)
 
