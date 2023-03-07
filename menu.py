@@ -1,20 +1,18 @@
 import pygame
 import sys
-#from clicker import *
+from clicker import text_thing
 
 pygame.init()
 
-# kirjutamis funktsioon
-def text(string, color):
-    return smallfont.render(string , True , color)
-
 # menüü nupu funktsioon
-def menu_button(x, y, size, screen, color):
-    button = pygame.Rect(x, y, size, size - 100)
-    pygame.draw.rect(screen, color, button)
+class Menu_button():
+    def __init__(self, x, y, sizex, sizey, screen, color, color1, text):
+        button = pygame.Rect(x, y, sizex, sizey)
+        self.rect = pygame.draw.rect(screen, color, button)
+        text_thing(text, screen, smallfont, color1, self.rect.centerx, self.rect.centery)
 
 
-global screen_height, screen_width, white, red
+global screen_height, screen_width, white, red, black, smallfont
 
 # ekraani suurus
 screen_width = 1280
@@ -23,6 +21,7 @@ screen_height = 768
 #värvid
 white = (255, 255, 255)
 red = (255, 150, 100)
+black = (0, 0, 0)
     
 # Font
 smallfont = pygame.font.SysFont('Calibri',35)
@@ -47,45 +46,39 @@ class Main_menu():
             self.screen.fill(white)
 
             # nupu tava asukoht
-            possize = 100
             x = 490
             y = 170
             sizex = 320
             sizey = 80
 
             # nupud
-            button = pygame.Rect(x, y, sizex, sizey)
-            rect = pygame.draw.rect(self.screen, red, button)
-            button_2 = pygame.Rect(x + 400, y, sizex, sizey)
-            rect_2 = pygame.draw.rect(self.screen, red, button_2)
-            button_3 = pygame.Rect(x -400, y, sizex, sizey)
-            rect_3 = pygame.draw.rect(self.screen, red, button_3)
-            button_4 = pygame.Rect(x, y + 340, sizex, sizey)
-            rect_4 = pygame.draw.rect(self.screen, red, button_4)
-            button_5 = pygame.Rect(x + 400, y + 340, sizex, sizey)
-            rect_5 = pygame.draw.rect(self.screen, red, button_5)
-            button_6 = pygame.Rect(x - 400, y + 340, sizex, sizey)
-            rect_6 = pygame.draw.rect(self.screen, red, button_6)
+
+            button = Menu_button(x, y, sizex, sizey, self.screen, red, black, 'Clicker')
+            button1 = Menu_button(x + 400, y, sizex, sizey, self.screen, red, black, 'B')
+            button2 = Menu_button(x - 400, y, sizex, sizey, self.screen, red, black, 'A')
+            button3 = Menu_button(x, y + 340, sizex, sizey, self.screen, red, black, 'D')
+            button4 = Menu_button(x + 400, y + 340, sizex, sizey, self.screen, red, black, 'E')
+            button5 = Menu_button(x - 400, y + 340, sizex, sizey, self.screen, red, black, 'C')
             
             # vaatab kas hiir on nupul
-            if button.collidepoint((mx, my)):
+            if button.rect.collidepoint((mx, my)):
                 if click:
-                    print('a')
-            if button_2.collidepoint((mx, my)):
+                    print('Clicker')
+            if button1.rect.collidepoint((mx, my)):
                 if click:
-                    print('am')
-            if button_3.collidepoint((mx, my)):
+                    print('B')
+            if button2.rect.collidepoint((mx, my)):
                 if click:
-                    print('amo')
-            if button_4.collidepoint((mx, my)):
+                    print('A')
+            if button3.rect.collidepoint((mx, my)):
                 if click:
-                    print('amon')
-            if button_5.collidepoint((mx, my)):
+                    print('D')
+            if button4.rect.collidepoint((mx, my)):
                 if click:
-                    print('among')
-            if button_6.collidepoint((mx, my)):
+                    print('E')
+            if button5.rect.collidepoint((mx, my)):
                 if click:
-                    print('amongu')
+                    print('C')
 
             click = False
 
