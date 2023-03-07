@@ -69,7 +69,7 @@ while True:
     # vaatab kas hiir on nupul
     if button.collidepoint((mx, my)):
         if click:
-            Clicker(screen)
+            print('a')
     if button_2.collidepoint((mx, my)):
         if click:
             print('am')
