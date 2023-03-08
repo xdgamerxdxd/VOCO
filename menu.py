@@ -107,3 +107,7 @@ class Main_menu():
     def destr(self, state):
         destr = Destr(state, self.screen)
         destr.run()
+
+    def Point_Click(self, state):
+        PointClick = Point_Click(state, self.screen)
+        PointClick.run()

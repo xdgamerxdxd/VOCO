@@ -10,7 +10,7 @@ class Point_Click():
         pygame.display.set_caption("Point & Click")
 
     def run(self):
-        clike = False
+        click = False
         while self.running:
             self.screen.blit(pygame.image.load(f'{i}voco_uksed.png'), (0, 0))
             mx, my = pygame.mouse.get_pos()
