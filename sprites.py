@@ -161,4 +161,101 @@ class Voco_fuajee(pygame.sprite.Sprite):
 
     def run(self):
         pass
+    
+class Voco_korridor(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super(Voco_korridor, self).__init__()  
+
+        self.image = pygame.image.load(f'{i}korridor.png') 
+        self.image = pygame.transform.scale(self.image, (1280, 768)) 
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+    def run(self):
+        pass
+class Voco_trepp(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super(Voco_trepp, self).__init__()  
+
+        self.image = pygame.image.load(f'{i}trepp.png') 
+        self.image = pygame.transform.scale(self.image, (1280, 768)) 
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+    def run(self):
+        pass
+class Voco_trepp2(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super(Voco_trepp2, self).__init__()  
+
+        self.image = pygame.image.load(f'{i}trepp 2.png') 
+        self.image = pygame.transform.scale(self.image, (1280, 768)) 
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+    def run(self):
+        pass
+class Voco_trep3(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super(Voco_trep3, self).__init__()  
+
+        self.image = pygame.image.load(f'{i}trep 3.png') 
+        self.image = pygame.transform.scale(self.image, (1280, 768)) 
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+    def run(self):
+        pass
+class Voco_3korrus(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super(Voco_3korrus, self).__init__()  
+
+        self.image = pygame.image.load(f'{i}3korrus koridor.png') 
+        self.image = pygame.transform.scale(self.image, (1280, 768)) 
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+    def run(self):
+        pass
+class Voco_klass(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super(Voco_klass, self).__init__()  
+
+        self.image = pygame.image.load(f'{i}klass.png') 
+        self.image = pygame.transform.scale(self.image, (1280, 768)) 
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+    def run(self):
+        pass
+class Voco_joonas(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super(Voco_joonas, self).__init__()  
+
+        self.image = pygame.image.load(f'{i}joonas pilves.png') 
+        self.image = pygame.transform.scale(self.image, (1280, 768)) 
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+    def run(self):
+        pass
+class Voco_margus(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super(Voco_margus, self).__init__()  
+
+        self.image = pygame.image.load(f'{i}margus jumpscare.png') 
+        self.image = pygame.transform.scale(self.image, (1280, 768)) 
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+    def run(self):
+        pass
             
