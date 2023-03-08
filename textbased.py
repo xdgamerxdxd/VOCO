@@ -38,8 +38,8 @@ tasks = {
     ],
     "bioloogia": [
         {
-            "question": "Mis on taimerakkudes rohelist värvi andev pigmend?",
-            "answer": "klorofüll"
+            "question": "Mis on evolutsioon?(vasta ühe sõnaga)",
+            "answer": "areng"
         },
         {
             "question": "Mis on inimese keha kõige suurem organ?",
