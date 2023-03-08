@@ -10,12 +10,16 @@ print(f"Tere tulemast, {name}! Sinu eesmärk on jõuda kooliaasta lõpuni ja saa
 tasks = {
     "matemaatika": [
         {
-            "question": "Kui 5 õpilast suudavad ehitada maja 5 päevaga, siis kui kaua kulub 8 õpilasel sama maja ehitamiseks?",
-            "answer": "3.125 päeva"
+            "question": "Mis on kolmnurga pindala valem?",
+            "answer": "a*h/2"
         },
         {
-            "question": "Mis on ruutjuure arvust 64?",
+            "question": "Mis on ruutjuur arvust 64?",
             "answer": "8"
+        },
+        {
+            "question": "Mis on ruutjuur arvust 100?",
+            "answer": "10"
         }
     ],
     "ajalugu": [
@@ -26,19 +30,29 @@ tasks = {
         {
             "question": "Millal toimus Eesti Vabariigi taasiseseisvumine?",
             "answer": "1991"
+        },
+        {
+            "question": "Millal toimus Teine Maailmasõda?",
+            "answer": "1939-1945"
         }
     ],
     "bioloogia": [
         {
             "question": "Mis on taimerakkudes rohelist värvi andev pigmend?",
             "answer": "klorofüll"
-            },
+        },
         {
             "question": "Mis on inimese keha kõige suurem organ?",
             "answer": "nahk"
-            }
+        },
+        {
+            "question": "Kas kopsudesse mahub õhku a)Ühepalju , b) Vasakusse kopsu rohkem , c) Paremasse kopsurohkem?",
+            "answer": "c "
+        }
+        
     ],
         }
+        
 
 # Defineerin funktsioon, mis küsib ülesannet ja kontrollib vastust
 def ask_task(subject, tasks):
@@ -64,12 +78,13 @@ for subject in tasks.keys():
 
 #mängu lõpp
 if points >= 3:
-    print("Palju õnne! Sa said hea hinne.")
+    print("Palju õnne! Sa said hea hinde.")
 elif points > 0:
-    print("Tubli töö! Sa said rahuldava hinne.")
+    print("Tubli töö! Sa said rahuldava hinde.")
 else:
     print("Kahjuks ei saanud sa head hinnet.")
 print(f"Said kokku {points} punkti.")
+
 
 
 

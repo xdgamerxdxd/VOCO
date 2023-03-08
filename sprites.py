@@ -128,10 +128,4 @@ class Enemy(pygame.sprite.Sprite):
         self.health = 10
 
     def run(self):
-        if self.health < 10:
-            int = random.randint(1, 100)
-            if int > 50:
-                self.rect.x -= 4
-            elif int <= 50:
-                self.rect.x += 4
-            
+        pass
