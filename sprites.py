@@ -1,4 +1,5 @@
 import pygame
+import random
 
 global i
 i = 'images/'
@@ -107,15 +108,12 @@ class Projectile(pygame.sprite.Sprite):
         if k[pygame.K_z] and self.seconds <= 3:
             self.time = True
             self.image = pygame.image.load(f'{i}projectile.png')
-            self.image = pygame.transform.rotate(self.image, 180)
             self.rect = self.image.get_rect()
             self.rect.x = x + 30
             self.rect.y = y - 600
-        if self.time == True:
-            self.seconds = (pygame.time.get_ticks() - self.tick) / 1000
-            if self.seconds >= 10:
+        self.seconds = (pygame.time.get_ticks() - self.tick) / 1000
+        if k[pygame.K_z] and self.seconds >= 10:
                 self.tick = pygame.time.get_ticks()
-                self.time = False
 
 
 
@@ -127,6 +125,13 @@ class Enemy(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.centerx = x
         self.rect.centery = y
+        self.health = 10
 
     def run(self):
-        pass
+        if self.health < 10:
+            int = random.randint(1, 100)
+            if int > 50:
+                self.rect.x -= 4
+            elif int <= 50:
+                self.rect.x += 4
+            

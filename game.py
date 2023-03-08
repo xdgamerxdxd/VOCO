@@ -26,8 +26,13 @@ class Destr():
             k = pygame.key.get_pressed()
             self.screen.fill((0, 0, 0))
             self.player.run(pygame.K_LEFT, pygame.K_RIGHT)
+            self.enemy.run()
             self.projectile.run(self.player.rect.x, self.player.rect.y)
             self.all.draw(self.screen)
+
+            if pygame.sprite.spritecollideany(self.enemy, self.bullets):
+                print(self.enemy.health)
+                self.enemy.health -= 0.5
             
 
             for event in pygame.event.get():
