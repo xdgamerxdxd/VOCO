@@ -2,9 +2,9 @@ import time
 
 õige = ["Õ", "õ", "õige"]
 vale = ["V", "v", "vale"]
-correct = 0 #Storing the correct answers
+correct = 0 
 
-nimi = input ("Mis on sinu nimi?") #Storing the user's name
+nimi = input ("Mis on sinu nimi?") 
 
 print ("\nOK, " +  nimi +", alustame. Vastused on ainult õige või vale")
 time.sleep(2)
@@ -12,7 +12,7 @@ time.sleep(2)
 print ("\n Siin saab õppida 7 osakonnas.")
 choice = input(">>> ")
 if choice in õige:
-  correct += 1 #If correct, the user gets one point
+  correct += 1 #Kui õige, saab mängija 1 punkti.
 else:
   correct += 0
   
