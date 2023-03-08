@@ -138,4 +138,27 @@ class Enemy(pygame.sprite.Sprite):
         if self.seconds >= 2:
             self.tick = pygame.time.get_ticks()
 
+class Voco_uks(pygame.sprite.Sprite):
+    def __init__(self, x, y) -> None:
+        super(Voco_uks, self).__init__()
+        self.image = pygame.image.load(f'{i}voco_uksed.png')  
+        self.image = pygame.transform.scale(self.image, (1280, 768))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        
+    def run(self):
+        pass
+ 
+class Voco_fuajee(pygame.sprite.Sprite):
+    def __init__(self, x, y) -> None:
+        super(Voco_fuajee, self).__init__()
+        self.image = pygame.image.load(f'{i}asendus fuajee.png')
+        self.image = pygame.transform.scale(self.image, (1280, 768))  
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+    def run(self):
+        pass
             
