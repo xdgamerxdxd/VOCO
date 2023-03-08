@@ -6,7 +6,6 @@ class Point_Click():
     def __init__(self, screen, state):
         self.screen = screen
         self.running = state
-        self.tick = pygame.time.get_ticks()
         pygame.display.set_caption("Point & Click")
 
     def run(self):
