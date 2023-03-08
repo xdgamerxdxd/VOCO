@@ -134,7 +134,7 @@ class Enemy(pygame.sprite.Sprite):
 
 class Voco_uksed(pygame.sprite.Sprite):
     def __init__(self, x, y):
-        super(Test, self).__init__()
+        super(Voco_uksed, self).__init__()
 
         self.image = pygame.image.load(f'{i}voco_uksed.png')
         self.rect = self.image.get_rect()
