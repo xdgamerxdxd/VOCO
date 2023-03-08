@@ -10,8 +10,8 @@ print(f"Tere tulemast, {name}! Sinu eesmärk on jõuda kooliaasta lõpuni ja saa
 tasks = {
     "matemaatika": [
         {
-            "question": "Kui 5 õpilast suudavad ehitada maja 5 päevaga, siis kui kaua kulub 8 õpilasel sama maja ehitamiseks?",
-            "answer": "3.125 päeva"
+            "question": "Mis on kolmnurga pindala valem?",
+            "answer": "a*h/2"
         },
         {
             "question": "Mis on ruutjuure arvust 64?",
