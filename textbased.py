@@ -1,12 +1,12 @@
 import random
 
-# küsi mängijalt nime
+# küsib mängijalt nime
 name = input("Tere! Mis on sinu nimi? ")
 
-# tervita mängijat
+# tervitab mängijat
 print(f"Tere tulemast, {name}! Sinu eesmärk on jõuda kooliaasta lõpuni ja saada hea hinne.")
 
-# defineeri erinevad ülesanded ja vastused
+# defineerib erinevad ülesanded ja vastused
 tasks = {
     "matemaatika": [
         {
@@ -54,7 +54,7 @@ tasks = {
         }
         
 
-# Defineerin funktsioon, mis küsib ülesannet ja kontrollib vastust
+# Defineerib funktsioon, mis küsib ülesannet ja kontrollib vastust
 def ask_task(subject, tasks):
     task = random.choice(tasks[subject])
     print(task["question"])
@@ -66,7 +66,7 @@ def ask_task(subject, tasks):
         print("Vale vastus. Kaotasid punkti.")
         return -1
 
-#alustan mängu
+#alustab mängu
 points = 0
 for subject in tasks.keys():
     print(f"Tere tulemast {subject} väljakutsesse!")

@@ -49,9 +49,9 @@ def play_game():
     print("Tere tulemast Voco kooli ja erialade tutvustamise mängu!")
     name = input("Mis on teie nimi? ")
 
-    # Alusta punktide arvestust
+    # Alustab punktide arvestust
     points = 0
-    # Käivita mäng, kuni kasutaja soovib mängida
+    # Käivitab mängu, kuni kasutaja soovib mängida
     while True:
         time.sleep(2)
         print("Valige, mida soovite teha:")
