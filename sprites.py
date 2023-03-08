@@ -1,4 +1,5 @@
 import pygame
+import random
 
 global i
 i = 'images/'
@@ -107,15 +108,12 @@ class Projectile(pygame.sprite.Sprite):
         if k[pygame.K_z] and self.seconds <= 3:
             self.time = True
             self.image = pygame.image.load(f'{i}projectile.png')
-            self.image = pygame.transform.rotate(self.image, 180)
             self.rect = self.image.get_rect()
             self.rect.x = x + 30
             self.rect.y = y - 600
-        if self.time == True:
-            self.seconds = (pygame.time.get_ticks() - self.tick) / 1000
-            if self.seconds >= 10:
+        self.seconds = (pygame.time.get_ticks() - self.tick) / 1000
+        if k[pygame.K_z] and self.seconds >= 10:
                 self.tick = pygame.time.get_ticks()
-                self.time = False
 
 
 
@@ -127,21 +125,7 @@ class Enemy(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.centerx = x
         self.rect.centery = y
+        self.health = 10
 
     def run(self):
         pass
-
-
-class Voco_uksed(pygame.sprite.Sprite):
-    def __init__(self, x, y):
-        super(Voco_uksed, self).__init__()
-
-        self.image = pygame.image.load(f'{i}voco_uksed.png')
-        self.rect = self.image.get_rect()
-        self.rect.centery = y / 2
-        self.rect.centerx = x / 2
-    
-    def run(self):
-        global mx, my
-        mx, my = pygame.mouse.get_pos()
-        self.image = pygame.image.load(f'{i}voco_uksed.png')
