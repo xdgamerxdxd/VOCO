@@ -37,7 +37,6 @@ class Destr():
             if pygame.sprite.spritecollideany(self.enemy, self.bullets):
                 self.enemy.health -= 100
             if self.enemy.health <= 0:
-                text = 'a'
                 self.enemy.kill()
                 self.points += 1
 
