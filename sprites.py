@@ -95,7 +95,6 @@ class Projectile(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        self.time = False
         self.tick = pygame.time.get_ticks()
         self.seconds = (pygame.time.get_ticks() - self.tick) / 1000
 
@@ -104,7 +103,7 @@ class Projectile(pygame.sprite.Sprite):
         k = pygame.key.get_pressed()
         self.image = pygame.image.load(f'{i}nowepon.png')
         self.rect = self.image.get_rect()
-        print(self.seconds)
+        #print(self.seconds)
         if k[pygame.K_z] and self.seconds <= 3:
             self.time = True
             self.image = pygame.image.load(f'{i}projectile.png')
@@ -115,8 +114,6 @@ class Projectile(pygame.sprite.Sprite):
         if k[pygame.K_z] and self.seconds >= 10:
                 self.tick = pygame.time.get_ticks()
 
-
-
 class Enemy(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()  
@@ -125,7 +122,20 @@ class Enemy(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.centerx = x
         self.rect.centery = y
-        self.health = 10
+        self.health = 1000
+        self.tick = pygame.time.get_ticks()
+        self.int = 5
 
     def run(self):
-        pass
+        self.seconds = (pygame.time.get_ticks() - self.tick) / 1000
+        if self.health < 1000:
+            if self.seconds >= 2:
+                self.int = random.randint(1, 10)
+            if self.int > 5 and self.rect.x > 0:
+                self.rect.x -= 4
+            elif self.int <= 5 and self.rect.x < 1280 - self.rect.width:
+                self.rect.x += 4
+        if self.seconds >= 2:
+            self.tick = pygame.time.get_ticks()
+
+            

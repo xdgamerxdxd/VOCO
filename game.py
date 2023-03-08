@@ -1,5 +1,6 @@
 import pygame
 from sprites import *
+from clicker import text_thing
 
 class Destr():
     def __init__(self, state, screen):
@@ -25,6 +26,7 @@ class Destr():
         while self.runne:
             k = pygame.key.get_pressed()
             self.screen.fill((0, 0, 0))
+            text = text_thing(str(self.enemy.health), self.screen, pygame.font.SysFont('Calibri', 50), (255, 0, 0), self.enemy.rect.x + 200, self.enemy.rect.y + 300)
             self.player.run(pygame.K_LEFT, pygame.K_RIGHT)
             self.enemy.run()
             self.projectile.run(self.player.rect.x, self.player.rect.y)
@@ -32,7 +34,7 @@ class Destr():
 
             if pygame.sprite.spritecollideany(self.enemy, self.bullets):
                 print(self.enemy.health)
-                self.enemy.health -= 0.5
+                self.enemy.health -= 1
             
 
             for event in pygame.event.get():
