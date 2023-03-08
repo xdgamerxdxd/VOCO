@@ -130,3 +130,18 @@ class Enemy(pygame.sprite.Sprite):
 
     def run(self):
         pass
+
+
+class Voco_uksed(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super(Test, self).__init__()
+
+        self.image = pygame.image.load(f'{i}voco_uksed.png')
+        self.rect = self.image.get_rect()
+        self.rect.centery = y / 2
+        self.rect.centerx = x / 2
+    
+    def run(self):
+        global mx, my
+        mx, my = pygame.mouse.get_pos()
+        self.image = pygame.image.load(f'{i}voco_uksed.png')
