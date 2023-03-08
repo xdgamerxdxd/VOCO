@@ -53,7 +53,7 @@ def play_game():
     points = 0
     # Käivita mäng, kuni kasutaja soovib mängida
     while True:
-        time.sleep(2)
+        time.sleep(3)
         print("Valige, mida soovite teha:")
         print("1. Tutvu sisseastumisega")
         print("2. Tutvu ITA erialaga")
@@ -86,3 +86,5 @@ def play_game():
             points += 10
         elif choice == 'quit':
             break
+        
+play_game()
