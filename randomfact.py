@@ -53,7 +53,7 @@ def play_game():
     points = 0
     # Käivita mäng, kuni kasutaja soovib mängida
     while True:
-        time.sleep(3)
+        time.sleep(2)
         print("Valige, mida soovite teha:")
         print("1. Tutvu sisseastumisega")
         print("2. Tutvu ITA erialaga")
@@ -68,23 +68,28 @@ def play_game():
             fact = random.choice(voco_faktid["Sisseastumine"])
             print(fact)
             points += 10
+            time.sleep(2)
         elif choice == "2":
             fact = random.choice(voco_faktid["ITA_eriala"])
             print(fact)
             points += 10
+            time.sleep(2)
         elif choice == "3":
             fact = random.choice(voco_faktid["ITS_eriala"])
             print(fact)
             points += 10
+            time.sleep(2)
         elif choice == "4":
             fact = random.choice(voco_faktid["Õppimine"])
             print(fact)
             points += 10
+            time.sleep(2)
         elif choice == "5":
             fact = random.choice(voco_faktid["Elu_olu"])
             print(fact)
             points += 10
-        elif choice == 'quit':
+            time.sleep(2)
+        elif choice == "6":
             break
         
 play_game()
