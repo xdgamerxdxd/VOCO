@@ -1,6 +1,7 @@
 import pygame
 import sys
 from clicker import *
+from game import *
 from randomfact import *
 
 pygame.init()
@@ -57,7 +58,7 @@ class Main_menu():
             button = Menu_button(x, y, sizex, sizey, self.screen, red, black, 'Clicker')
             button1 = Menu_button(x + 400, y, sizex, sizey, self.screen, red, black, 'B')
             button2 = Menu_button(x - 400, y, sizex, sizey, self.screen, red, black, 'Faktid')
-            button3 = Menu_button(x, y + 340, sizex, sizey, self.screen, red, black, 'D')
+            button3 = Menu_button(x, y + 340, sizex, sizey, self.screen, red, black, 'Destroyer game')
             button4 = Menu_button(x + 400, y + 340, sizex, sizey, self.screen, red, black, 'E')
             button5 = Menu_button(x - 400, y + 340, sizex, sizey, self.screen, red, black, 'C')
             
@@ -73,7 +74,7 @@ class Main_menu():
                     play_game()
             if button3.rect.collidepoint((mx, my)):
                 if click:
-                    print('D')
+                    self.destr(click)
             if button4.rect.collidepoint((mx, my)):
                 if click:
                     print('E')
@@ -102,3 +103,6 @@ class Main_menu():
             self.points += 1
             print(self.points)
 
+    def destr(self, state):
+        destr = Destr(state, self.screen)
+        destr.run()
