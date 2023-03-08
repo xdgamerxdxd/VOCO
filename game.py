@@ -3,12 +3,14 @@ from sprites import *
 from clicker import text_thing
 
 class Destr():
+    # algus intid
     def __init__(self, state, screen):
         self.screen = screen
         self.runne = state
+        self.points = 0
         self.entity()
 
-    
+    # tegelased
     def entity(self):
         self.all = pygame.sprite.Group()
         self.enemies = pygame.sprite.Group()
@@ -33,9 +35,11 @@ class Destr():
             self.all.draw(self.screen)
 
             if pygame.sprite.spritecollideany(self.enemy, self.bullets):
-                print(self.enemy.health)
-                self.enemy.health -= 1
-            
+                self.enemy.health -= 100
+            if self.enemy.health <= 0:
+                text = 'a'
+                self.enemy.kill()
+                self.points += 1
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

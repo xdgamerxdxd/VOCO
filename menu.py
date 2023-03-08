@@ -4,6 +4,7 @@ from clicker import *
 from game import *
 from randomfact import *
 from pointclick import *
+from lisamäng import *
 
 pygame.init()
 
@@ -61,7 +62,7 @@ class Main_menu():
             button2 = Menu_button(x - 400, y, sizex, sizey, self.screen, red, black, 'Faktid')
             button3 = Menu_button(x, y + 340, sizex, sizey, self.screen, red, black, 'Destroyer game')
             button4 = Menu_button(x + 400, y + 340, sizex, sizey, self.screen, red, black, 'Point&Click')
-            button5 = Menu_button(x - 400, y + 340, sizex, sizey, self.screen, red, black, 'C')
+            button5 = Menu_button(x - 400, y + 340, sizex, sizey, self.screen, red, black, 'Lisamäng')
             
             # vaatab kas hiir on nupul
             if button.rect.collidepoint((mx, my)):
@@ -81,7 +82,7 @@ class Main_menu():
                     self.Point_Click(click)
             if button5.rect.collidepoint((mx, my)):
                 if click:
-                    print('C')
+                    mäng(True)
 
             click = False
 
@@ -107,6 +108,9 @@ class Main_menu():
     def destr(self, state):
         destr = Destr(state, self.screen)
         destr.run()
+        if destr.points >= 1:
+            self.points += 1
+            print(self.points)
 
     def Point_Click(self, state):
         PointClick = Point_Click(state, self.screen)

@@ -103,7 +103,7 @@ class Projectile(pygame.sprite.Sprite):
         k = pygame.key.get_pressed()
         self.image = pygame.image.load(f'{i}nowepon.png')
         self.rect = self.image.get_rect()
-        #print(self.seconds)
+        print(self.seconds)
         if k[pygame.K_z] and self.seconds <= 3:
             self.time = True
             self.image = pygame.image.load(f'{i}projectile.png')
